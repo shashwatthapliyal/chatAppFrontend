@@ -4,16 +4,18 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests } from "../utils/requestsSlice";
 import UserCard from "./UserCard";
+import RequestCard from "./RequestCard";
 
 const Requests = () => {
   const dispatch = useDispatch();
   const requests = useSelector((store) => store.requests);
+//   console.log(requests);
 
   const fetchRequests = async () => {
     const res = await axios.get(BASE_URL + "/user/request/recieved", {
       withCredentials: true,
     });
-    console.log(res.data.connectionRequest);
+    // console.log(res.data.connectionRequest);
     dispatch(addRequests(res.data.connectionRequest));
   };
 
@@ -26,7 +28,13 @@ const Requests = () => {
   return (
     <div>
       {requests &&
-        requests.map((user, idx) => <UserCard user={user.fromUserId} key={idx} />)}
+        requests.map((user, idx) => (
+          <RequestCard
+            user={user.fromUserId}
+            requestId={user._id}
+            key={idx}
+          />
+        ))}
     </div>
   );
 };

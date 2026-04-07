@@ -13,6 +13,7 @@ import Profile from "./components/Profile.jsx";
 import EditProfile from "./components/EditProfile.jsx";
 import Connections from "./components/Connections.jsx";
 import Requests from "./components/Requests.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const appRouter = createBrowserRouter([
       {
         path: "requests",
         element: <Requests />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
       },
     ],
   },

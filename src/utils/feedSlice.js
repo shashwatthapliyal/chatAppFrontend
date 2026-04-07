@@ -9,6 +9,10 @@ const feedSlice = createSlice({
         },
         removeFeed: (state, action) => {
             return null;
+        },
+        // Update the feed when user clicks (interested,ignored) on the user's profiles on the feed
+        updateFeed: (state, action) => {
+            return state.filter((res) => res._id != action.payload)
         }
     }
 })
@@ -22,5 +26,5 @@ const feedSlice = createSlice({
 
 
 
-export const { addFeed } = feedSlice.actions;
+export const { addFeed, removeUser, updateFeed } = feedSlice.actions;
 export default feedSlice.reducer;

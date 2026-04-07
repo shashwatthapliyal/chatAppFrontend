@@ -26,7 +26,7 @@ const App = () => {
       if (err.status === 401) {
         navigate("/login");
       }
-      console.log(err);
+      // console.log(err.response);
     }
   };
 
