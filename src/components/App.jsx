@@ -9,6 +9,9 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const App = () => {
+  const user = useSelector((store) => store.user);
+  const isLoggedIn = !!user;
+  console.log(isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
@@ -42,7 +45,7 @@ const App = () => {
       <div className="flex-grow">
         <Outlet />
       </div>
-      <Footer />
+      {isLoggedIn && <Footer />}
     </div>
   );
 };

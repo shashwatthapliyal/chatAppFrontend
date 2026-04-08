@@ -26,9 +26,34 @@ const Connections = () => {
   if (!connections) return;
   if (connections.length === 0) return <h1>No Connections Found</h1>;
   return (
-    <div>
-      {connections &&
-        connections.map((user, idx) => <ConnectionCard key={idx} user={user} />)}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-950-700 pt-24 px-4 sm:px-6 lg:px-12">
+      {/* Empty State */}
+      {connections.length === 0 && (
+        <div className="text-center text-gray-300 mt-20 text-lg">
+          No Connections Found
+        </div>
+      )}
+
+      {/* Heading */}
+      <div className="max-w-5xl mx-auto mb-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white">
+          Your Connections ({connections.length})
+        </h1>
+        <p className="text-gray-200 mt-2">People you are connected with 🤝</p>
+      </div>
+
+      {/* Connections List */}
+      <div className="max-w-5xl mx-auto space-y-6">
+        {connections &&
+          connections.map((user, idx) => (
+            <div
+              key={idx}
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 shadow-lg"
+            >
+              <ConnectionCard user={user} />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

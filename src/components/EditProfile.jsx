@@ -45,121 +45,99 @@ const EditProfile = ({ user }) => {
       // console.log(err?.response?.data);
     }
   };
+return (
+  <>
+    {/* Toast */}
+    {showToast && (
+      <div className="fixed bottom-5 right-5 bg-white/10 backdrop-blur-lg border border-white/20 text-white px-4 py-2 rounded-xl shadow-lg mt-20">
+        Data Updated Successfully.
+      </div>
+    )}
 
-  return (
-    <>
-      {showToast && (
-        <div className="toast">
-          <div className="alert alert-info">
-            <span>Data Updated Successfully.</span>
+    {/* MAIN LAYOUT */}
+    <div className="min-h-screen border border-white/20 rounded-lg px-4 sm:px-6 lg:px-12 py-10">
+      {/* 🔥 FIXED GRID */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[85vh]">
+        {/* LEFT → FORM */}
+        <div className="w-full bg-white/10 backdrop-blur-xl border border-white rounded-2xl p-6 sm:p-8 shadow-lg">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white">
+            Edit Profile
+          </h2>
+
+          <div className="mb-4">
+            <label className="block text-sm text-gray-300 mb-1">
+              First Name
+            </label>
+            <input
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+              type="text"
+              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
-        </div>
-      )}
 
-      <div className="flex justify-center gap-10">
-        <div className="min-h-screen flex items-center justify-center bg-base-100 px-4">
-          <div className="card w-full max-w-md bg-base-200 shadow-2xl rounded-2xl p-8">
-            {/* Heading */}
-            <h2 className="text-3xl font-bold text-center mb-6">
-              Edit Profile
-            </h2>
-
-            {/* FirstName */}
-            <div className="form-control mb-4">
-              <label htmlFor="firstName" className="label">
-                <span className="label-text text-sm">First Name</span>
-              </label>
-              <input
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstName}
-                id="firstName"
-                type="text"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary p-4"
-              />
-            </div>
-
-            {/* LastName */}
-            <div className="form-control mb-4">
-              <label htmlFor="lastName" className="label">
-                <span className="label-text text-sm">Last Name</span>
-              </label>
-              <input
-                onChange={(e) => setLastName(e.target.value)}
-                value={lastName}
-                id="lastName"
-                type="text"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary p-4"
-              />
-            </div>
-
-            {/* gender */}
-            <div className="form-control mb-4">
-              <label htmlFor="gender" className="label">
-                <span className="label-text text-sm">Gender</span>
-              </label>
-              <input
-                onChange={(e) => setGender(e.target.value)}
-                value={gender}
-                id="gender"
-                type="text"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary p-4"
-              />
-            </div>
-
-            {/* age */}
-            <div className="form-control mb-4">
-              <label htmlFor="age" className="label">
-                <span className="label-text text-sm">Age</span>
-              </label>
-              <input
-                onChange={(e) => setAge(e.target.value)}
-                value={age}
-                id="age"
-                type="number"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary p-4"
-              />
-            </div>
-
-            {/* about */}
-            <div className="form-control mb-4">
-              <label htmlFor="about" className="label">
-                <span className="label-text text-sm">About</span>
-              </label>
-              <input
-                onChange={(e) => setAbout(e.target.value)}
-                value={about}
-                id="about"
-                type="text"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary p-4"
-              />
-            </div>
-
-            <div>
-              <p className="text-red-500">{error}</p>
-            </div>
-
-            {/* Button */}
-            <button
-              onClick={saveProfile}
-              className="btn  w-full rounded-xl text-lg outline-none"
-            >
-              Submit
-            </button>
-
-            {/* Footer text */}
-            <p className="text-red-600 text-center mt-4"></p>
+          <div className="mb-4">
+            <label className="block text-sm text-gray-300 mb-1">
+              Last Name
+            </label>
+            <input
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+              type="text"
+              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
+
+          <div className="mb-4">
+            <label className="block text-sm text-gray-300 mb-1">Gender</label>
+            <input
+              onChange={(e) => setGender(e.target.value)}
+              value={gender}
+              type="text"
+              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm text-gray-300 mb-1">Age</label>
+            <input
+              onChange={(e) => setAge(e.target.value)}
+              value={age}
+              type="number"
+              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm text-gray-300 mb-1">About</label>
+            <input
+              onChange={(e) => setAbout(e.target.value)}
+              value={about}
+              type="text"
+              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          {error && <p className="text-red-400 text-sm mb-2">{error}</p>}
+
+          <button
+            onClick={saveProfile}
+            className="w-full mt-4 py-3 rounded-xl text-lg font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+          >
+            Save Changes
+          </button>
         </div>
 
-        {/* User can see how there card looks while editing profile */}
-        <div>
+        {/* RIGHT → LIVE PREVIEW */}
+        <div className="flex justify-center items-center h-full">
           <UserCard
             user={{ firstName, lastName, age, gender, about, photoUrl }}
           />
         </div>
       </div>
-    </>
-  );
+    </div>
+  </>
+);
 };
 
 export default EditProfile;

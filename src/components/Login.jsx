@@ -41,46 +41,42 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-100 px-4">
-      <div className="card w-full max-w-md bg-base-200 shadow-2xl rounded-2xl p-8 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-gray-900 to-slate-950 px-4">
+      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)]">
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-center mb-6 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 tracking-tight text-white">
           Welcome Back
         </h2>
 
         {/* Email */}
-        <div className="form-control mb-4">
-          <label className="label">
-            <span className="label-text text-sm opacity-70">Email</span>
-          </label>
+        <div className="mb-4">
+          <label className="block text-sm text-gray-300 mb-1">Email</label>
           <input
             value={emailId}
             type="email"
             placeholder="Enter your email"
-            className="input input-bordered w-full p-4 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:scale-[1.02]"
+            className="w-full p-3 sm:p-4 rounded-xl bg-white/10 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 focus:scale-[1.02]"
             onChange={(e) => setEmailId(e.target.value)}
           />
         </div>
 
         {/* Password */}
-        <div className="form-control mb-2">
-          <label className="label">
-            <span className="label-text text-sm opacity-70">Password</span>
-          </label>
+        <div className="mb-2">
+          <label className="block text-sm text-gray-300 mb-1">Password</label>
 
           <div className="relative">
             <input
               value={password}
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              className="input input-bordered w-full p-4 pr-12 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:scale-[1.02]"
+              className="w-full p-3 sm:p-4 pr-14 rounded-xl bg-white/10 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 focus:scale-[1.02]"
               onChange={(e) => setPassword(e.target.value)}
             />
 
             {/* Show Password Button */}
             <span
               onClick={togglePassword}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-primary cursor-pointer hover:underline"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-blue-400 cursor-pointer hover:text-blue-300 transition"
             >
               Show
             </span>
@@ -89,23 +85,23 @@ const Login = () => {
 
         {/* Error */}
         {error && (
-          <p className="text-red-500 text-sm mt-2 text-center animate-pulse">
+          <p className="text-red-400 text-sm mt-2 text-center animate-pulse">
             {error}
           </p>
         )}
 
         {/* Button */}
         <button
-          className="btn w-full mt-6 rounded-xl text-lg outline-none transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-95"
+          className="w-full mt-6 py-3 rounded-xl text-lg font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-95"
           onClick={handleLogin}
         >
           Login
         </button>
 
         {/* Footer */}
-        <p className="text-center text-sm mt-6 opacity-70">
+        <p className="text-center text-sm mt-6 text-gray-400">
           Don’t have an account?{" "}
-          <span className="text-primary cursor-pointer hover:underline hover:opacity-90 transition">
+          <span className="text-blue-400 cursor-pointer hover:underline hover:text-blue-300 transition">
             <Link to="/signup">Sign up</Link>
           </span>
         </p>
