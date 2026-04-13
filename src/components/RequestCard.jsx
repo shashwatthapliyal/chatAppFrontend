@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { BASE_URL } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeRequest } from "../utils/requestsSlice";
 
 const RequestCard = ({ user, requestId }) => {
+
+const connections=useSelector((store)=>store.connections)
+
+
   //   console.log(requestId);
   const [requestStatus, setRequestStatus] = useState(null);
   const dispatch = useDispatch();
@@ -19,6 +23,7 @@ const RequestCard = ({ user, requestId }) => {
       );
       setRequestStatus(status);
       dispatch(removeRequest(requestId));
+      dispatch()
       setTimeout(() => setRequestStatus(null), 3000);
     } catch (err) {
       console.log(err.response.data);

@@ -29,39 +29,45 @@ const UserCard = ({ user }) => {
   // console.log(user)
   return (
     <div className="w-full">
-      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
-        {/* IMAGE */}
-        <div className="w-full sm:w-32 h-40 sm:h-32 flex-shrink-0">
-          <img
-            src={photoUrl}
-            alt="user"
-            className="w-full h-full object-cover rounded-xl"
-          />
+      <div className="flex items-center justify-between gap-4 bg-white/5 backdrop-blur-xl rounded-2xl px-4 py-3">
+        {/* LEFT */}
+        <div className="flex items-center gap-4 min-w-0">
+          {/* IMAGE */}
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-white/10">
+            <img
+              src={photoUrl}
+              alt="user"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* TEXT */}
+          <div className="min-w-0 text-white">
+            <h2 className="text-sm sm:text-base font-semibold truncate">
+              {firstName} {lastName}
+              <span className="text-gray-400 font-normal">, {age}</span>
+            </h2>
+
+            <p className="text-xs text-gray-400 mt-1 truncate max-w-[180px] sm:max-w-[260px]">
+              {about}
+            </p>
+          </div>
         </div>
 
-        {/* CONTENT */}
-        <div className="flex-1 text-white text-center sm:text-left">
-          {/* Name */}
-          <h2 className="text-xl sm:text-2xl font-semibold">
-            {firstName} {lastName}, {age}
-          </h2>
-
-          {/* About */}
-          <p className="text-gray-300 text-sm mt-3 leading-relaxed">{about}</p>
-        </div>
-
-        {/* ACTION BUTTONS */}
-        <div className="flex sm:flex-col gap-3 mt-4 sm:mt-0">
+        {/* RIGHT BUTTONS */}
+        <div className="flex items-center gap-2 shrink-0">
+          {/* IGNORE */}
           <button
             onClick={() => handleSendRequest("ignored", user._id)}
-            className="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-red-500/20 flex items-center justify-center"
           >
             ❌
           </button>
 
+          {/* LIKE */}
           <button
             onClick={() => handleSendRequest("interested", user._id)}
-            className="w-12 h-12 rounded-full bg-pink-500 text-white flex items-center justify-center"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center shadow-md"
           >
             ❤️
           </button>

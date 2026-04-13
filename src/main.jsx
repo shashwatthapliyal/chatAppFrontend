@@ -14,6 +14,7 @@ import EditProfile from "./components/EditProfile.jsx";
 import Connections from "./components/Connections.jsx";
 import Requests from "./components/Requests.jsx";
 import SignUp from "./components/SignUp.jsx";
+import Chat from "./components/Chat.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const appRouter = createBrowserRouter([
         path: "signup",
         element: <SignUp />,
       },
+      {
+        path: "chat/:targetUserId",
+        element:<Chat/>
+      }
     ],
   },
 ]);

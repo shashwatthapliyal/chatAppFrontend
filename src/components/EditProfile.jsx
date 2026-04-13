@@ -49,90 +49,90 @@ return (
   <>
     {/* Toast */}
     {showToast && (
-      <div className="fixed bottom-5 right-5 bg-white/10 backdrop-blur-lg border border-white/20 text-white px-4 py-2 rounded-xl shadow-lg mt-20">
+      <div className="fixed bottom-6 right-6 z-50 bg-white/10 border border-white/20 text-white px-4 py-2 rounded-lg shadow-md">
         Data Updated Successfully.
       </div>
     )}
 
-    {/* MAIN LAYOUT */}
-    <div className="min-h-screen border border-white/20 rounded-lg px-4 sm:px-6 lg:px-12 py-10">
-      {/* 🔥 FIXED GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[85vh]">
+    {/* MAIN */}
+    <div className="h-[calc(100vh-64px)] px-4 sm:px-6 lg:px-12 flex items-center">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* LEFT → FORM */}
-        <div className="w-full bg-white/10 backdrop-blur-xl border border-white rounded-2xl p-6 sm:p-8 shadow-lg">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white">
+        <div className="w-full max-w-md mx-auto lg:mx-0 bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-5 sm:p-6 shadow-md">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-5 text-white">
             Edit Profile
           </h2>
 
-          <div className="mb-4">
-            <label className="block text-sm text-gray-300 mb-1">
-              First Name
-            </label>
-            <input
-              onChange={(e) => setFirstName(e.target.value)}
-              value={firstName}
-              type="text"
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          <div className="space-y-3">
+            {/* Names */}
+            <div className="grid grid-cols-2 gap-3">
+              <input
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First Name"
+                className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
 
-          <div className="mb-4">
-            <label className="block text-sm text-gray-300 mb-1">
-              Last Name
-            </label>
-            <input
-              onChange={(e) => setLastName(e.target.value)}
-              value={lastName}
-              type="text"
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+              <input
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last Name"
+                className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-          <div className="mb-4">
-            <label className="block text-sm text-gray-300 mb-1">Gender</label>
-            <input
-              onChange={(e) => setGender(e.target.value)}
+            {/* Gender */}
+            <select
               value={gender}
-              type="text"
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+              onChange={(e) => setGender(e.target.value)}
+              className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
 
-          <div className="mb-4">
-            <label className="block text-sm text-gray-300 mb-1">Age</label>
+            {/* Age */}
             <input
-              onChange={(e) => setAge(e.target.value)}
               value={age}
+              onChange={(e) => setAge(e.target.value)}
               type="number"
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Age"
+              className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </div>
 
-          <div className="mb-4">
-            <label className="block text-sm text-gray-300 mb-1">About</label>
-            <input
-              onChange={(e) => setAbout(e.target.value)}
+            {/* About */}
+            <textarea
               value={about}
-              type="text"
-              className="w-full p-3 rounded-xl bg-white/10 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={(e) => setAbout(e.target.value)}
+              rows={3}
+              placeholder="About"
+              className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
+
+            {error && <p className="text-red-400 text-xs">{error}</p>}
+
+            <button
+              onClick={saveProfile}
+              className="w-full mt-2 py-2.5 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+            >
+              Save Changes
+            </button>
           </div>
-
-          {error && <p className="text-red-400 text-sm mb-2">{error}</p>}
-
-          <button
-            onClick={saveProfile}
-            className="w-full mt-4 py-3 rounded-xl text-lg font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white"
-          >
-            Save Changes
-          </button>
         </div>
 
-        {/* RIGHT → LIVE PREVIEW */}
-        <div className="flex justify-center items-center h-full">
-          <UserCard
-            user={{ firstName, lastName, age, gender, about, photoUrl }}
-          />
+        {/* RIGHT → PREVIEW */}
+        <div className="flex justify-center lg:justify-end">
+          <div className="w-full max-w-sm bg-white/5 border border-white/10 rounded-2xl p-4">
+            <p className="text-xs text-gray-400 mb-3 text-center">
+              Live Preview
+            </p>
+
+            {/* ❌ REMOVED EXTRA BORDER HERE */}
+            <UserCard
+              user={{ firstName, lastName, age, gender, about, photoUrl }}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ import axios from "axios";
 const App = () => {
   const user = useSelector((store) => store.user);
   const isLoggedIn = !!user;
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
@@ -40,7 +40,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-screen flex flex-col">
       <Navbar />
       <div className="flex-grow">
         <Outlet />

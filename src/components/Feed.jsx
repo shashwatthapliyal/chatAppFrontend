@@ -7,7 +7,7 @@ import UserCard from "./UserCard";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
-  console.log(feed);
+  // console.log(feed);
   const dispatch = useDispatch();
 
   const getFeed = async () => {
@@ -29,36 +29,35 @@ const Feed = () => {
   }, []);
 
 return (
-  <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-950 pt-24 px-4 sm:px-6 lg:px-12">
+  <div className="min-h-screen bg-slate-900 pt-24 px-4 sm:px-6 lg:px-12">
     {/* Heading */}
-    <div className="max-w-5xl mx-auto mb-8">
-      <h1 className="text-3xl sm:text-4xl font-bold text-white">
+    <div className="max-w-4xl mx-auto mb-8">
+      <h1 className="text-2xl sm:text-3xl font-semibold text-white">
         Discover People
       </h1>
-      <p className="text-gray-200 mt-2">
+      <p className="text-gray-400 text-sm mt-1">
         Find and connect with amazing developers ✨
       </p>
     </div>
 
-    {/* Feed Cards */}
-    <div className="max-w-5xl mx-auto space-y-6">
-      {feed &&
-        feed.map((user, idx) => (
-          <div
-            key={idx}
-            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 shadow-lg"
-          >
-            <UserCard user={user} />
-          </div>
-        ))}
+    {/* Feed */}
+    <div className="max-w-4xl mx-auto space-y-3">
+      { feed && feed.map((user) => (
+        <div
+          key={user._id}
+          className="bg-slate-800 rounded-xl px-4 py-3 
+        border border-white/5 
+        hover:bg-slate-700 transition"
+        >
+          <UserCard user={user} />
+        </div>
+      ))}
     </div>
 
-    {/* Bottom text */}
-    {feed && (
-      <p className="text-center text-gray-300 mt-10 text-sm">
-        ✨ You've reached the end of the feed
-      </p>
-    )}
+    {/* End */}
+    <p className="text-center text-gray-500 mt-8 text-xs">
+      ✨ You've reached the end
+    </p>
   </div>
 );
 };
