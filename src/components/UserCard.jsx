@@ -42,7 +42,7 @@ const UserCard = ({ user }) => {
           </div>
 
           {/* TEXT */}
-          <div className="min-w-0 text-white">
+          <div className="min-w-0 text-gray-400">
             <h2 className="text-sm sm:text-base font-semibold truncate">
               {firstName} {lastName}
               <span className="text-gray-400 font-normal">, {age}</span>

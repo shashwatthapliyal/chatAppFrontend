@@ -42,49 +42,37 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-gray-900 to-black px-4 sm:px-6 py-12">
-      {/* Glow */}
-      <div className="absolute w-[280px] h-[280px] bg-blue-500/20 blur-[120px] rounded-full top-0 left-0"></div>
-      <div className="absolute w-[280px] h-[280px] bg-purple-500/20 blur-[120px] rounded-full bottom-0 right-0"></div>
-
-      <div
-        className="relative w-full max-w-sm sm:max-w-md 
-    bg-white/[0.08] backdrop-blur-2xl 
-    border border-white/10 
-    shadow-[0_10px_40px_rgba(0,0,0,0.6)] 
-    rounded-2xl 
-    px-5 py-6 sm:px-7 sm:py-7"
-      >
+    <div className="min-h-screen flex items-center justify-center bg-[#f0f2f5] px-4">
+      <div className="w-full max-w-sm bg-white rounded-xl border border-gray-200 shadow-sm p-5 sm:p-6">
         {/* Heading */}
-        <h2 className="text-xl sm:text-2xl font-semibold text-center text-white">
+        <h2 className="text-xl font-semibold text-center text-gray-800">
           Welcome Back 👋
         </h2>
 
-        <p className="text-center text-gray-400 text-xs sm:text-sm mt-1 mb-5">
+        <p className="text-center text-gray-500 text-sm mt-1 mb-5">
           Login to continue
         </p>
 
         {/* Form */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {/* Email */}
           <div>
-            <label className="text-xs text-gray-300">Email</label>
+            <label className="text-xs text-gray-600">Email</label>
             <input
               value={emailId}
               type="email"
               placeholder="Enter email"
               className="mt-1 w-full px-3 py-2.5 rounded-lg 
-          bg-white/[0.06] border border-white/10 
-          text-sm text-white placeholder-gray-400 
-          focus:outline-none focus:ring-1 focus:ring-blue-500 
-          focus:bg-white/[0.08] transition"
+          border border-gray-300 
+          text-sm text-gray-800 placeholder-gray-400 
+          focus:outline-none focus:ring-1 focus:ring-[#25D366]"
               onChange={(e) => setEmailId(e.target.value)}
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="text-xs text-gray-300">Password</label>
+            <label className="text-xs text-gray-600">Password</label>
 
             <div className="relative">
               <input
@@ -92,17 +80,15 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter password"
                 className="mt-1 w-full px-3 py-2.5 pr-14 rounded-lg 
-            bg-white/[0.06] border border-white/10 
-            text-sm text-white placeholder-gray-400 
-            focus:outline-none focus:ring-1 focus:ring-blue-500 
-            focus:bg-white/[0.08] transition"
+            border border-gray-300 
+            text-sm text-gray-800 placeholder-gray-400 
+            focus:outline-none focus:ring-1 focus:ring-[#25D366]"
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              {/* Toggle */}
               <span
                 onClick={togglePassword}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-blue-400 cursor-pointer hover:text-blue-300"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-[#25D366] cursor-pointer"
               >
                 {showPassword ? "Hide" : "Show"}
               </span>
@@ -112,14 +98,13 @@ const Login = () => {
 
         {/* Error */}
         {error && (
-          <p className="text-red-400 text-xs mt-3 text-center">{error}</p>
+          <p className="text-red-500 text-xs mt-3 text-center">{error}</p>
         )}
 
         {/* Button */}
         <button
           className="w-full mt-5 py-2.5 rounded-lg text-sm font-semibold 
-      bg-gradient-to-r from-blue-500 to-purple-600 
-      text-white shadow-md 
+      bg-[#25D366] text-white 
       hover:opacity-90 active:scale-95 transition"
           onClick={handleLogin}
         >
@@ -128,15 +113,15 @@ const Login = () => {
 
         {/* Divider */}
         <div className="flex items-center gap-3 my-5">
-          <div className="flex-1 h-[1px] bg-white/10"></div>
-          <span className="text-gray-400 text-[10px]">OR</span>
-          <div className="flex-1 h-[1px] bg-white/10"></div>
+          <div className="flex-1 h-[1px] bg-gray-200"></div>
+          <span className="text-gray-400 text-xs">OR</span>
+          <div className="flex-1 h-[1px] bg-gray-200"></div>
         </div>
 
         {/* Footer */}
-        <p className="text-center text-xs sm:text-sm text-gray-400">
+        <p className="text-center text-sm text-gray-500">
           Don’t have an account?{" "}
-          <span className="text-blue-400 cursor-pointer hover:underline">
+          <span className="text-[#25D366] cursor-pointer hover:underline">
             <Link to="/signup">Sign up</Link>
           </span>
         </p>

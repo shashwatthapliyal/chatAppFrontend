@@ -39,58 +39,45 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-gray-900 to-black px-4 sm:px-6 py-12">
-      {/* Glow */}
-      <div className="absolute w-[280px] h-[280px] bg-blue-500/20 blur-[120px] rounded-full top-0 left-0"></div>
-      <div className="absolute w-[280px] h-[280px] bg-purple-500/20 blur-[120px] rounded-full bottom-0 right-0"></div>
-
-      <div
-        className="relative w-full max-w-sm sm:max-w-md 
-    bg-white/[0.08] backdrop-blur-2xl 
-    border border-white/10 
-    shadow-[0_10px_40px_rgba(0,0,0,0.6)] 
-    rounded-2xl 
-    px-5 py-6 sm:px-7 sm:py-7"
-      >
+    <div className="min-h-screen flex items-center justify-center bg-[#f0f2f5] px-4">
+      <div className="w-full max-w-sm bg-white rounded-xl border border-gray-200 shadow-sm p-5 sm:p-6">
         {/* Heading */}
-        <h2 className="text-xl sm:text-2xl font-semibold text-center text-white">
+        <h2 className="text-xl font-semibold text-center text-gray-800">
           Create Account 🚀
         </h2>
 
-        <p className="text-center text-gray-400 text-xs sm:text-sm mt-1 mb-5">
+        <p className="text-center text-gray-500 text-sm mt-1 mb-5">
           Join and start your journey
         </p>
 
         {/* Form */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {/* Names */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-300">First Name</label>
+              <label className="text-xs text-gray-600">First Name</label>
               <input
                 value={firstName}
                 type="text"
                 placeholder="First name"
                 className="mt-1 w-full px-3 py-2.5 rounded-lg 
-            bg-white/[0.06] border border-white/10 
-            text-sm text-white placeholder-gray-400 
-            focus:outline-none focus:ring-1 focus:ring-blue-500 
-            focus:bg-white/[0.08] transition"
+            border border-gray-300 
+            text-sm text-gray-800 placeholder-gray-400 
+            focus:outline-none focus:ring-1 focus:ring-[#25D366]"
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
 
             <div>
-              <label className="text-xs text-gray-300">Last Name</label>
+              <label className="text-xs text-gray-600">Last Name</label>
               <input
                 value={lastName}
                 type="text"
                 placeholder="Last name"
                 className="mt-1 w-full px-3 py-2.5 rounded-lg 
-            bg-white/[0.06] border border-white/10 
-            text-sm text-white placeholder-gray-400 
-            focus:outline-none focus:ring-1 focus:ring-blue-500 
-            focus:bg-white/[0.08] transition"
+            border border-gray-300 
+            text-sm text-gray-800 placeholder-gray-400 
+            focus:outline-none focus:ring-1 focus:ring-[#25D366]"
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
@@ -98,48 +85,45 @@ const SignUp = () => {
 
           {/* Age */}
           <div>
-            <label className="text-xs text-gray-300">Age</label>
+            <label className="text-xs text-gray-600">Age</label>
             <input
               value={age}
               type="number"
               placeholder="Enter age"
               className="mt-1 w-full px-3 py-2.5 rounded-lg 
-          bg-white/[0.06] border border-white/10 
-          text-sm text-white placeholder-gray-400 
-          focus:outline-none focus:ring-1 focus:ring-blue-500 
-          focus:bg-white/[0.08] transition"
+          border border-gray-300 
+          text-sm text-gray-800 placeholder-gray-400 
+          focus:outline-none focus:ring-1 focus:ring-[#25D366]"
               onChange={(e) => setAge(e.target.value)}
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="text-xs text-gray-300">Email</label>
+            <label className="text-xs text-gray-600">Email</label>
             <input
               value={emailId}
               type="email"
               placeholder="Enter email"
               className="mt-1 w-full px-3 py-2.5 rounded-lg 
-          bg-white/[0.06] border border-white/10 
-          text-sm text-white placeholder-gray-400 
-          focus:outline-none focus:ring-1 focus:ring-blue-500 
-          focus:bg-white/[0.08] transition"
+          border border-gray-300 
+          text-sm text-gray-800 placeholder-gray-400 
+          focus:outline-none focus:ring-1 focus:ring-[#25D366]"
               onChange={(e) => setEmailId(e.target.value)}
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="text-xs text-gray-300">Password</label>
+            <label className="text-xs text-gray-600">Password</label>
             <input
               value={password}
               type="password"
               placeholder="Create password"
               className="mt-1 w-full px-3 py-2.5 rounded-lg 
-          bg-white/[0.06] border border-white/10 
-          text-sm text-white placeholder-gray-400 
-          focus:outline-none focus:ring-1 focus:ring-blue-500 
-          focus:bg-white/[0.08] transition"
+          border border-gray-300 
+          text-sm text-gray-800 placeholder-gray-400 
+          focus:outline-none focus:ring-1 focus:ring-[#25D366]"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -147,15 +131,13 @@ const SignUp = () => {
 
         {/* Error */}
         {error && (
-          <p className="text-red-400 text-xs mt-3 text-center">{error}</p>
+          <p className="text-red-500 text-xs mt-3 text-center">{error}</p>
         )}
 
         {/* Button */}
         <button
           className="w-full mt-5 py-2.5 rounded-lg text-sm font-semibold 
-      bg-gradient-to-r from-blue-500 to-purple-600 
-      text-white 
-      shadow-md 
+      bg-[#25D366] text-white 
       hover:opacity-90 active:scale-95 transition"
           onClick={handleSignup}
         >
@@ -163,11 +145,11 @@ const SignUp = () => {
         </button>
 
         {/* Footer */}
-        <p className="text-center text-xs sm:text-sm mt-4 text-gray-400">
+        <p className="text-center text-sm mt-4 text-gray-500">
           Already have an account?{" "}
           <span
             onClick={() => navigate("/login")}
-            className="text-blue-400 cursor-pointer hover:underline"
+            className="text-[#25D366] cursor-pointer hover:underline"
           >
             Login
           </span>

@@ -40,11 +40,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col bg-[#f0f2f5]">
       <Navbar />
-      <div className="flex-grow">
+
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-4 pt-14 overflow-hidden">
         <Outlet />
-      </div>
+      </main>
+
       {isLoggedIn && <Footer />}
     </div>
   );

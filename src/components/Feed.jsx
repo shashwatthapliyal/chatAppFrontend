@@ -29,33 +29,32 @@ const Feed = () => {
   }, []);
 
 return (
-  <div className="min-h-screen bg-slate-900 pt-24 px-4 sm:px-6 lg:px-12">
+  <div className="min-h-screen bg-[#f0f2f5] pt-20 px-4 sm:px-6">
     {/* Heading */}
-    <div className="max-w-4xl mx-auto mb-8">
-      <h1 className="text-2xl sm:text-3xl font-semibold text-white">
+    <div className="max-w-4xl mx-auto mb-6">
+      <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">
         Discover People
       </h1>
-      <p className="text-gray-400 text-sm mt-1">
+      <p className="text-gray-500 text-sm mt-1">
         Find and connect with amazing developers ✨
       </p>
     </div>
 
     {/* Feed */}
     <div className="max-w-4xl mx-auto space-y-3">
-      { feed && feed.map((user) => (
-        <div
-          key={user._id}
-          className="bg-slate-800 rounded-xl px-4 py-3 
-        border border-white/5 
-        hover:bg-slate-700 transition"
-        >
-          <UserCard user={user} />
-        </div>
-      ))}
+      {feed &&
+        feed.map((user) => (
+          <div
+            key={user._id}
+            className="  bg-white border border-gray-200 rounded-lg px-4 py-3 hover:bg-gray-50 transition"
+          >
+            <UserCard user={user} />
+          </div>
+        ))}
     </div>
 
     {/* End */}
-    <p className="text-center text-gray-500 mt-8 text-xs">
+    <p className="text-center text-gray-400 mt-8 text-xs">
       ✨ You've reached the end
     </p>
   </div>

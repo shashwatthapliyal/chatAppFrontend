@@ -76,103 +76,96 @@ const socket=createSocketConnection();
   };
 
   return (
-    <div className="h-screen flex bg-black text-white">
+    <div className="h-full flex bg-[#f0f2f5] text-gray-800">
       {/* LEFT SIDEBAR */}
-      <div className="w-[30%] mt-14 hidden md:flex flex-col border-r border-white/10 bg-[#020617]">
-        {/* Sidebar Header */}
-        <div className=" pt-8 px-4 py-4 border-b border-white/10 bg-white/5 backdrop-blur-xl">
-          <h2 className="font-semibold text-lg">Chats</h2>
+      <div className="hidden md:flex md:w-[30%] lg:w-[25%] flex-col border-r border-gray-200 bg-white">
+        <div className="px-4 py-3 border-b border-gray-200 font-semibold">
+          Chats
         </div>
 
-        {/* Chat List */}
         <div className="flex-1 overflow-y-auto">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
             <div
               key={item}
-              className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 cursor-pointer transition border-b border-white/5"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-100"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-medium">
                 U
               </div>
 
               <div className="flex-1">
                 <h3 className="text-sm font-medium">User {item}</h3>
-                <p className="text-xs text-gray-400 truncate">
+                <p className="text-xs text-gray-500 truncate">
                   Last message preview...
                 </p>
               </div>
 
-              <span className="text-xs text-gray-500">2:30 PM</span>
+              <span className="text-xs text-gray-400">2:30 PM</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* RIGHT CHAT AREA */}
-      <div className="flex-1">
-        <div className="mt-14 h-[calc(100vh-56px)] flex flex-col bg-gradient-to-br from-[#0f172a] via-[#020617] to-black text-white">
-          {/* HEADER */}
-          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/10 bg-white/5 backdrop-blur-xl sticky top-0 z-10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg shadow-lg">
-                {firstName?.[0].toUpperCase()}
-              </div>
-              <div>
-                <h2 className="font-semibold text-base sm:text-lg">
-                  {firstName} {lastName && lastName}
-                </h2>
-                <p className="text-xs text-green-400">● Online</p>
-              </div>
-            </div>
+      <div className="flex-1 flex flex-col">
+        {/* HEADER */}
+        <div className="flex items-center gap-3 px-4 sm:px-6 py-3 border-b border-gray-200 bg-white">
+          <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center font-medium">
+            {firstName?.[0]?.toUpperCase()}
           </div>
 
-          {/* CHAT AREA */}
-          <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-4 space-y-3">
-            {messages.map((msg, idx) => {
-              const isMe = msg.firstName === user.firstName;
-
-              return (
-                <div
-                  key={idx}
-                  className={`flex ${isMe ? "justify-end" : "justify-start"}`}
-                >
-                  <div
-                    className={`max-w-[75%] sm:max-w-[60%] px-4 py-2 rounded-2xl text-sm shadow-md ${
-                      isMe
-                        ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-br-none"
-                        : "bg-white/10 backdrop-blur-md text-gray-200 rounded-bl-none"
-                    }`}
-                  >
-                    <p className="break-words">{msg.text}</p>
-                  </div>
-                </div>
-              );
-            })}
+          <div>
+            <h2 className="font-medium text-sm sm:text-base">
+              {firstName} {lastName}
+            </h2>
+            <p className="text-xs text-green-500">Online</p>
           </div>
+        </div>
 
-          {/* INPUT */}
-          <div className="px-3 sm:px-6 py-3 border-t border-white/10 bg-white/5 backdrop-blur-xl sticky bottom-0">
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 rounded-full px-3 py-2 border border-white/20 focus-within:border-purple-400 transition">
-              <input
-                value={newMessage}
-                type="text"
-                placeholder="Type a message..."
-                className="flex-1 bg-transparent outline-none px-2 text-sm"
-                onChange={(e) => setnewMessage(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              />
+        {/* CHAT AREA */}
+        <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-4 space-y-2">
+          {messages.map((msg, idx) => {
+            const isMe = msg.firstName === user.firstName;
 
-              <button className="p-2 rounded-full hover:bg-white/10 transition">
-                😊
-              </button>
-
-              <button
-                onClick={sendMessage}
-                className="px-4 py-1.5 sm:py-2 text-sm rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105 active:scale-95 transition font-medium"
+            return (
+              <div
+                key={idx}
+                className={`flex ${isMe ? "justify-end" : "justify-start"}`}
               >
-                Send
-              </button>
-            </div>
+                <div
+                  className={`max-w-[75%] sm:max-w-[60%] px-4 py-2 text-sm ${
+                    isMe
+                      ? "bg-[#dcf8c6] rounded-lg rounded-br-none"
+                      : "bg-white border border-gray-200 rounded-lg rounded-bl-none"
+                  }`}
+                >
+                  <p className="break-words">{msg.text}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* INPUT */}
+        <div className="px-3 sm:px-6 py-3 border-t border-gray-200 bg-white">
+          <div className="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-2">
+            <input
+              value={newMessage}
+              type="text"
+              placeholder="Type a message"
+              className="flex-1 bg-transparent outline-none text-sm px-2"
+              onChange={(e) => setnewMessage(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            />
+
+            <button className="text-xl">😊</button>
+
+            <button
+              onClick={sendMessage}
+              className="bg-[#25D366] text-white px-4 py-1.5 rounded-full text-sm"
+            >
+              Send
+            </button>
           </div>
         </div>
       </div>

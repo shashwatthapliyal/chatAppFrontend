@@ -27,33 +27,33 @@ const Connections = () => {
   if (!connections) return;
  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black pt-24 px-4 sm:px-6 lg:px-12">
-      {/* Empty State */}
-      {connections.length === 0 && (
-        <div className="text-center text-gray-400 mt-20 text-lg">
-          No Connections Found
-        </div>
-      )}
-
+    <div className="min-h-screen bg-[#f0f2f5] pt-20 px-4 sm:px-6">
       {/* Heading */}
-      <div className="max-w-4xl mx-auto mb-8">
-        <h1 className="text-2xl sm:text-3xl font-semibold text-white">
+      <div className="max-w-4xl mx-auto mb-6">
+        <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">
           Your Connections ({connections.length})
         </h1>
-        <p className="text-gray-400 text-sm mt-1">
+        <p className="text-gray-500 text-sm mt-1">
           People you are connected with 🤝
         </p>
       </div>
 
+      {/* Empty State */}
+      {connections.length === 0 && (
+        <div className="text-center text-gray-500 mt-20 text-sm">
+          No Connections Found
+        </div>
+      )}
+
       {/* List */}
-      <div className="max-w-4xl mx-auto space-y-4">
+      <div className="max-w-4xl mx-auto space-y-3">
         {connections.map((user, idx) => (
           <div
             key={idx}
             className="flex items-center justify-between 
-        bg-white/[0.05] border border-white/10 
-        rounded-xl px-4 py-3 
-        transition hover:bg-white/[0.08]"
+        bg-white border border-gray-200 
+        rounded-lg px-4 py-3 
+        hover:bg-gray-50 transition"
           >
             <ConnectionCard user={user} />
           </div>
