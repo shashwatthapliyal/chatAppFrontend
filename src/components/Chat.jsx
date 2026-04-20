@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation, useParams } from "react-router";
-import socket from "../utils/socket";
+import {createSocketConnection} from "../utils/socket.js"
 import { useSelector } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 
@@ -45,6 +45,8 @@ const Chat = () => {
     }
     // console.log(userId, targetUserId);
     // As soon as page loads , the joinChat event is emitted
+const socket=createSocketConnection();
+
     socket.emit("joinChat", {
       firstName: user.firstName,
       userId,
@@ -62,6 +64,8 @@ const Chat = () => {
   }, [userId, targetUserId]);
 
   const sendMessage = () => {
+const socket=createSocketConnection();
+
     socket.emit("sendMessage", {
       firstName: user.firstName,
       userId,
