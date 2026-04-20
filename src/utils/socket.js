@@ -2,24 +2,8 @@ import { BASE_URL } from "./constants";
 import { io } from "socket.io-client";
 
 
-// Add auth in the message
+const socket = location.hostname === "localhost"
+    ? io(BASE_URL)
+    : io("/", { path: "/api/socket.io" });
 
-// function getCookie(name) {
-//     return document.cookie
-//         .split("; ")
-//         .find((row) => row.startsWith(name + "="))
-//         ?.split("=")[1];
-
-// }
-
-// const token = getCookie("token");
-
-// console.log(token)
-
-const socket = io(BASE_URL//, {
-//     token,
-//  }
-
-);
 export default socket;
-
